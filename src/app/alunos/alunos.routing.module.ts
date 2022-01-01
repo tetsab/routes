@@ -6,13 +6,18 @@ import { AlunoFormComponent } from './aluno-form/aluno-form.component';
 import { AlunoDetalheComponent } from './aluno-detalhe/aluno-detalhe.component';
 import { AlunosGuard } from 'app/guards/alunos.guard';
 import { AlunosDeactivateGuard } from 'app/guards/alunos-deactivate.guard';
+import { AlunoDetalheResolver } from './guards/aluno-detalhe.resolver';
 
 const alunosRoutes = [
         { path: '', component: AlunosComponent,
-          canActivateChild: [AlunosGuard], 
+          // canActivateChild: [AlunosGuard], 
             children: [
                 { path: 'novo', component: AlunoFormComponent },
-                { path: ':id', component: AlunoDetalheComponent },
+                { 
+                  path: ':id', 
+                  component: AlunoDetalheComponent, 
+                  resolve: { aluno: AlunoDetalheResolver }
+                },
                 { 
                   path: ':id/editar', 
                   component: AlunoFormComponent, 

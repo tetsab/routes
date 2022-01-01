@@ -10,8 +10,8 @@ export class AlunosGuard implements CanActivateChild {
     ): Observable<boolean>|Promise<boolean>|boolean {
         // console.log(route);
         // console.log(state);
-
-        if(state.url.includes('editar')){
+        // console.log('AlunosGuard: Guarda de rota filha');
+;        if(state.url.includes('editar')){
             // alert('User without access'); // or hide button
             // return false;
             // return Observable.of(false);
